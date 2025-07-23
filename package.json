@@ -1,0 +1,25 @@
+{
+  "name": "soft-309-m6-2025",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsoto-cenfo/SOFT-309-M6-2025.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lsoto-cenfo/SOFT-309-M6-2025/issues"
+  },
+  "homepage": "https://github.com/lsoto-cenfo/SOFT-309-M6-2025#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0"
+  }
+}
