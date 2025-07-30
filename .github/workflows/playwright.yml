@@ -20,9 +20,8 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
       env:
-        my_user: 'standard_user'
-        my_password: 'secret_sauce'
-        my_performance_glitched_user: 'performance_glitch_user'
+        my_user: Admin
+        my_password: admin123
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
