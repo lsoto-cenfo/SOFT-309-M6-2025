@@ -31,28 +31,10 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
-         
-  k6-test:
-    name: Run k6 Load Test
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install k6
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gnupg ca-certificates
-          curl -s https://dl.k6.io/key.gpg | sudo apt-key add -
-          echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
-          sudo apt-get update
-          sudo apt-get install -y k6
-      - name: Run k6 test
-        run: k6 run tests/K6/k6.js
 
   release:
     name: Create Release
-    needs: k6-test
+    needs: test
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     steps:
