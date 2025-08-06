@@ -1,7 +1,7 @@
 name: Scheduled k6 Load Test
 on:
   schedule:
-    - cron: '35 02 * * *'
+    - cron: '2 * * * *'
 
 jobs:
   k6-test:
