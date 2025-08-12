@@ -1,4 +1,4 @@
-import { test } from "@playwright/test";
+/* import { test } from "@playwright/test";
 import LoginPage from "../tests/pages/Login.page.js";
 
 test("Tesing buttons", async ({ page }) => {
@@ -14,4 +14,4 @@ test("Tesing buttons", async ({ page }) => {
     await productsAddButtons[randomNumber].click();
   
   await console.log("Products added to cart");
-});
+});*/

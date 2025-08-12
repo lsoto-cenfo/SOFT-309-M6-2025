@@ -11,26 +11,28 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
       with:
-        node-version: lts/*
+        node-version: '20'
     - name: Install dependencies
       run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
       env:
-        my_user: 'standard_user'
-        my_password: 'secret_sauce'
-        my_performance_glitched_user: 'performance_glitch_user'
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
+        my_user: ${{ secrets.MY_USER }}
+        my_password: ${{ secrets.MY_PASSWORD }}
+        myperformance_user: ${{ secrets.MYPERFORMANCE_USER }}
+        myinvalid_user: ${{ secrets.MYINVALID_USER }}
+        myinvalid_password: ${{ secrets.MYINVALID_PASSWORD }}
+    - name: Upload Playwright HTML report
+      if: always()
+      uses: actions/upload-artifact@v4
       with:
         name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+        path: playwright-report
 
   release:
     name: Create Release
