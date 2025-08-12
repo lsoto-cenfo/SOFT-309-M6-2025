@@ -3,9 +3,9 @@ permissions:
   contents: write
 on:
   push:
-    branches: [ main, master ]
+    branches: [ '**' ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ '**' ]
 jobs:
   test:
     timeout-minutes: 60
