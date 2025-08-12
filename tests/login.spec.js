@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
-import LoginPage from '../tests/pages/login.page.js';
-import InventoryPage from '../tests/pages/Inventory.page.js';
+import LoginPage from './pages/login.page.js';
+import InventoryPage from './pages/Inventory.page.js';
 
 test.describe('Login Tests', () => {
 
