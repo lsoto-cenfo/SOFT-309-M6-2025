@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import LoginPage from './pages/login.page.js';
+import LoginPage from './pages/Login.page.js';
 import InventoryPage from './pages/Inventory.page.js';
 import user from '../data/user.json';
 
