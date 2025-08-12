@@ -19,14 +19,14 @@ jobs:
         node-version: '20'
     - name: Install dependencies
       run: npm ci
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
       env:
-        my_user: ${{ secrets.MY_USER }}
-        my_password: ${{ secrets.MY_PASSWORD }}
-        myperformance_user: ${{ secrets.MYPERFORMANCE_USER }}
-        myinvalid_user: ${{ secrets.MYINVALID_USER }}
-        myinvalid_password: ${{ secrets.MYINVALID_PASSWORD }}
+        my_user: standard_user
+        my_password: secret_sauce
+        myperformance_user: performance_glitch_user
     - name: Upload Playwright HTML report
       if: always()
       uses: actions/upload-artifact@v4
