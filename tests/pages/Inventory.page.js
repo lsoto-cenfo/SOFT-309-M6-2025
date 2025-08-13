@@ -17,56 +17,26 @@ class InventoryPage {
         await expect(this.inventoryTitle).toBeVisible();
     }
 
-    addSauceLabsBackpackToCart = async () => {
+    addProductByName = async (productName) => {
         await this.page.waitForSelector('.inventory_item');
-        const addItemButton = this.page.locator('.inventory_item').filter({ hasText: 'Sauce Labs Backpack' }).locator('button');
+        const addItemButton = this.page.locator('.inventory_item').filter({ hasText: productName }).locator('button');
         await addItemButton.click();
-    }
+    } 
 
-    removeSauceLabsBackpackFromCart = async () => {
+    removeProductByName = async (productName) => {
         await this.page.waitForSelector('.inventory_item');
-        const removeItemButton = this.page.locator('.inventory_item').filter({ hasText: 'Sauce Labs Backpack' }).locator('button');
+        const removeItemButton = this.page.locator('.inventory_item').filter({ hasText: productName }).locator('button');
         await removeItemButton.click();
     }
 
-    addSauceLabsBikelightToCart = async () => {
-        await this.page.waitForSelector('.inventory_item');
-        const addItemButton = this.page.locator('.inventory_item').filter({ hasText: 'Sauce Labs Bike Light' }).locator('button');
-        await addItemButton.click();
-    }
-
-    addSauceLabsBoltTshirtToCart = async () => {
-        await this.page.waitForSelector('.inventory_item');
-        const addItemButton = this.page.locator('.inventory_item').filter({ hasText: 'Sauce Labs Bolt T-Shirt' }).locator('button');
-        await addItemButton.click();
-    }
-
-    addSauceLabsFleeceJacketToCart = async () => {
-        await this.page.waitForSelector('.inventory_item');
-        const addItemButton = this.page.locator('.inventory_item').filter({ hasText: 'Sauce Labs Fleece Jacket' }).locator('button');
-        await addItemButton.click();
-    }   
-
-    addSauceLabsOnesieToCart = async () => {
-        await this.page.waitForSelector('.inventory_item');
-        const addItemButton = this.page.locator('.inventory_item').filter({ hasText: 'Sauce Labs Onesie' }).locator('button');
-        await addItemButton.click();
-    }   
-
-    addTestAllTheThingsTShirtToCart = async () => {
-        await this.page.waitForSelector('.inventory_item');
-        const addItemButton = this.page.locator('.inventory_item').filter({ hasText: 'Test.allTheThings() T-Shirt (Red)' }).locator('button');
-        await addItemButton.click();
-    }   
-
     addAllItemsToCart = async () => {
-        await this.addSauceLabsBackpackToCart();
-        await this.addSauceLabsBikelightToCart();
-        await this.addSauceLabsBoltTshirtToCart();
-        await this.addSauceLabsFleeceJacketToCart();
-        await this.addSauceLabsOnesieToCart();
-        await this.addTestAllTheThingsTShirtToCart();
-    }   
+        await this.addProductByName('Sauce Labs Backpack');
+        await this.addProductByName('Sauce Labs Bike Light');
+        await this.addProductByName('Sauce Labs Bolt T-Shirt');
+        await this.addProductByName('Sauce Labs Fleece Jacket');
+        await this.addProductByName('Sauce Labs Onesie');
+        await this.addProductByName('Test.allTheThings() T-Shirt (Red)');
+    }
 }
 
 export default InventoryPage;

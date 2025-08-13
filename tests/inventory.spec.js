@@ -15,7 +15,7 @@ test.describe('Inventory Tests', () => {
         const login = new LoginPage(page);
         await login.doLogin(process.env.my_user, process.env.my_password);
         const inventoryPage = new InventoryPage(page);
-        await inventoryPage.addSauceLabsBackpackToCart();
+        await inventoryPage.addProductByName('Sauce Labs Backpack');
     });
 
     test('should add multiple items (all items) to cart', async ({ page }) => {
@@ -30,16 +30,10 @@ test.describe('Inventory Tests', () => {
         await login.doLogin(process.env.my_user, process.env.my_password);
         const inventoryPage = new InventoryPage(page);
         
-        // Add item to cart
-        await inventoryPage.addSauceLabsBackpackToCart();
-        
-        // Verify cart badge shows 1 item
+    
+        await inventoryPage.addProductByName('Sauce Labs Backpack');
         await expect(inventoryPage.page.locator('.shopping_cart_badge')).toHaveText('1');
-        
-        // Remove item from cart
-        await inventoryPage.removeSauceLabsBackpackFromCart();
-        
-        // Verify cart badge is no longer visible (no items in cart)
+        await inventoryPage.removeProductByName('Sauce Labs Backpack');
         await expect(inventoryPage.page.locator('.shopping_cart_badge')).not.toBeVisible();
     });
 });
