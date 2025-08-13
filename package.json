@@ -20,6 +20,7 @@
     "@types/node": "^24.1.0"
   },
   "dependencies": {
+    "allure-playwright": "^3.3.3",
     "dotenv": "^17.2.0"
   }
 }
