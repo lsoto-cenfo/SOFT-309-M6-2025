@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import LoginPage from '../tests/pages/Login.page.js';
 import InventoryPage from '../tests/pages/Inventory.page.js';
 import dotenv from 'dotenv';
-dotenv.config({ path: '.creds.env' });
+dotenv.config({ path: '.env' });
 
 test.describe('Login Tests', () => {
     let login, inventoryPage;

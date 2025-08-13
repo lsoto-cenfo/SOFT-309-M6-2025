@@ -2,6 +2,11 @@ name: Playwright Tests
 
 on: [push, pull_request]
 
+env:
+  my_user: standard_user
+  my_password: secret_sauce
+  my_performance_glitched_user: performance_glitch_user
+
 jobs:
   test:
     runs-on: ubuntu-latest
