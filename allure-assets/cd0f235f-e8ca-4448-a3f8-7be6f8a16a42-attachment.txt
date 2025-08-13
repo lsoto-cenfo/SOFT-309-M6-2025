@@ -1,0 +1,2 @@
+[DEBUG] Waiting for error message
+[DEBUG] Error message text: Epic sadface: Username and password do not match any user in this service

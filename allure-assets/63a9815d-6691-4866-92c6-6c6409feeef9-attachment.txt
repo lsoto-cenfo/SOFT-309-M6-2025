@@ -1,0 +1,3 @@
+[DEBUG] Items: Sauce Labs Backpack
+[DEBUG] Items: Sauce Labs Bike Light
+[DEBUG] Items: Sauce Labs Onesie
