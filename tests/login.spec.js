@@ -1,13 +1,12 @@
 import { test } from '@playwright/test';
-import LoginPage from './pages/login.page';
-import InventoryPage from './pages/Inventory.page';
+import LoginPage from './pages/Login.page.js';
+import InventoryPage from './pages/Inventory.page.js';
 import dotenv from 'dotenv';
 
 dotenv.config({ path: '.creds.env' });
 
 test.describe('Login Tests', () => {
     test.beforeEach(async ({ page }) => {
-        // Navigate to the login page before running tests
         await page.goto('https://www.saucedemo.com/v1/index.html');
     });
 

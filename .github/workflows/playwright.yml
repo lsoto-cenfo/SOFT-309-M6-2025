@@ -22,6 +22,15 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install Java
+      uses: actions/setup-java@v4.7.1
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Install Allure CLI
+      run: npm install -g allure-commandline --save-dev  
+
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
@@ -36,6 +45,10 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test --reporter=html
 
+    - name: Generate Allure report
+      if: always()
+      run: allure generate allure-results -o allure-report --clean  
+
     - name: Upload Playwright Report
       uses: actions/upload-artifact@v4
       if: always()
@@ -43,6 +56,22 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+
+    - name: Upload Playwright Report Allure
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-results
+        path: allure-results/
+        retention-days: 30
+
+    - name: Upload Allure HTML Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-report
+        path: allure-report/
+        retention-days: 30    
 
     - name: Upload test results
       uses: actions/upload-artifact@v4

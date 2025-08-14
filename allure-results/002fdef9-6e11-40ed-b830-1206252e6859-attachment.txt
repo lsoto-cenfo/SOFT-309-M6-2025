@@ -1,0 +1,2 @@
+✅ Order completion page loaded successfully
+✅ Thank you message validated successfully

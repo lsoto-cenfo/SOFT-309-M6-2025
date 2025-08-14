@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
-import LoginPage from './pages/login.page';
-import InventoryPage from './pages/Inventory.page';
+import LoginPage from './pages/Login.page.js';
+import InventoryPage from './pages/Inventory.page.js';
 import dotenv from 'dotenv';
 
 dotenv.config({ path: '.creds.env' });
